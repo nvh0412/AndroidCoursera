@@ -26,16 +26,20 @@ public class ActivityTwo extends Activity {
 	// mCreate, mRestart, mStart and mResume 	
 	// to count calls to onCreate(), onRestart(), onStart() and
 	// onResume(). These variables should not be defined as static.
-	
+	int mCreate, mRestart, mStart, mResume;
 	// You will need to increment these variables' values when their
 	// corresponding lifecycle methods get called.
-	
+
 
 	
 	
 	// TODO: Create variables for each of the TextViews
 	// named  mTvCreate, mTvRestart, mTvStart, mTvResume.
 	// for displaying the current count of each counter variable
+	TextView mTvCreate;
+	TextView mTvRestart;
+	TextView mTvStart;
+	TextView mTvResume;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +49,12 @@ public class ActivityTwo extends Activity {
 		// TODO: Assign the appropriate TextViews to the TextView variables
 		// Hint: Access the TextView by calling Activity's findViewById()
 		// textView1 = (TextView) findViewById(R.id.textView1);
+		mTvCreate = (TextView) findViewById(R.id.create);
+		mTvRestart = (TextView) findViewById(R.id.restart);
+		mTvResume = (TextView) findViewById(R.id.resume);
+		mTvStart = (TextView) findViewById(R.id.start);
+		
 
-
-		
-		
-		
-		
 		Button closeButton = (Button) findViewById(R.id.bClose); 
 		closeButton.setOnClickListener(new OnClickListener() {
 
@@ -60,9 +64,7 @@ public class ActivityTwo extends Activity {
 				// TODO:
 				// This function closes Activity Two
 				// Hint: use Context's finish() method
-
-				
-			
+				finish();
 			}
 		});
 
@@ -72,7 +74,6 @@ public class ActivityTwo extends Activity {
 			// TODO:
 			// Restore value of counters from saved state
 			// Only need 4 lines of code, one for every count variable
-
 
 			
 			
@@ -185,14 +186,9 @@ public class ActivityTwo extends Activity {
 	// names
 	// specified above
 	public void displayCounts() {
-
-		// TODO - uncomment these lines
-	/*
-		mTvCreate.setText("onCreate() calls: " + mCreate);
-		mTvStart.setText("onStart() calls: " + mStart);
-		mTvResume.setText("onResume() calls: " + mResume);
-		mTvRestart.setText("onRestart() calls: " + mRestart);
-	*/
-	
+//		mTvCreate.setText("onCreate() calls: " + mCreate);
+//		mTvStart.setText("onStart() calls: " + mStart);
+//		mTvResume.setText("onResume() calls: " + mResume);
+//		mTvRestart.setText("onRestart() calls: " + mRestart);
 	}
 }
