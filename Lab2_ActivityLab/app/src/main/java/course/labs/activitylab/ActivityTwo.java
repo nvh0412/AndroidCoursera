@@ -74,11 +74,11 @@ public class ActivityTwo extends Activity {
 			// TODO:
 			// Restore value of counters from saved state
 			// Only need 4 lines of code, one for every count variable
+            mCreate = (Integer) savedInstanceState.get(CREATE_KEY);
+            mRestart = (Integer) savedInstanceState.get(RESTART_KEY);
+            mResume = (Integer) savedInstanceState.get(RESUME_KEY);
+            mStart = (Integer) savedInstanceState.get(START_KEY);
 
-			
-			
-			
-			
 		}
 
 		// Emit LogCat message
@@ -87,10 +87,8 @@ public class ActivityTwo extends Activity {
 		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface via the displayCounts() method
-
-
-		
-		
+        mCreate++;
+		displayCounts();
 	}
 
 	// Lifecycle callback methods overrides
@@ -105,10 +103,8 @@ public class ActivityTwo extends Activity {
 		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface
-
-
-		
-		
+        mStart++;
+        displayCounts();
 	}
 
 	@Override
@@ -121,9 +117,8 @@ public class ActivityTwo extends Activity {
 		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface
-
-
-	
+        mResume++;
+        displayCounts();
 	}
 
 	@Override
@@ -152,10 +147,8 @@ public class ActivityTwo extends Activity {
 		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface
-
-
-	
-	
+        mRestart++;
+        displayCounts();
 	}
 
 	@Override
@@ -172,13 +165,12 @@ public class ActivityTwo extends Activity {
 		// TODO:
 		// Save counter state information with a collection of key-value pairs
 		// 4 lines of code, one for every count variable
-
-
-
-		
-		
-		
-		
+        if(savedInstanceState != null){
+            savedInstanceState.putInt(CREATE_KEY, mCreate);
+            savedInstanceState.putInt(RESUME_KEY, mResume);
+            savedInstanceState.putInt(RESTART_KEY, mRestart);
+            savedInstanceState.putInt(START_KEY, mStart);
+        }
 	}
 
 	// Updates the displayed counters
@@ -186,9 +178,9 @@ public class ActivityTwo extends Activity {
 	// names
 	// specified above
 	public void displayCounts() {
-//		mTvCreate.setText("onCreate() calls: " + mCreate);
-//		mTvStart.setText("onStart() calls: " + mStart);
-//		mTvResume.setText("onResume() calls: " + mResume);
-//		mTvRestart.setText("onRestart() calls: " + mRestart);
+		mTvCreate.setText("onCreate() calls: " + mCreate);
+		mTvStart.setText("onStart() calls: " + mStart);
+		mTvResume.setText("onResume() calls: " + mResume);
+		mTvRestart.setText("onRestart() calls: " + mRestart);
 	}
 }
