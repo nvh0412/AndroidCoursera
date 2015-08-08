@@ -1,11 +1,3 @@
-
-*.class
-
-*.bin
-
-*.apk
-
-
 .gradle
 /local.properties
 .idea
